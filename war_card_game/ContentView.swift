@@ -12,11 +12,14 @@ struct ContentView: View {
         ZStack {
             Image("background-plain")
                 .ignoresSafeArea()
-            
             VStack {
-                Spacer()
+                
+                Spacer() // Space
+                
                 Image("logo")
-                Spacer()
+                
+                Spacer() // Space
+                
                 HStack {
                     Spacer()
                     Image("card2")
@@ -32,15 +35,14 @@ struct ContentView: View {
                 Spacer() // Space
                 
                 HStack {
-                    Spacer()
+                    Spacer() // Space
+                    
                     VStack {
                         Text("Player")
                             .font(.headline)
-                            .foregroundColor(.white)
                             .padding(.bottom, 3)
                         Text("0")
                             .font(.largeTitle)
-                            .foregroundColor(Color.white)
                     }
                     
                     Spacer() // Space
@@ -48,14 +50,14 @@ struct ContentView: View {
                     VStack {
                         Text("CPU")
                             .font(.headline)
-                            .foregroundColor(.white)
                             .padding(.bottom, 3.0)
                         Text("0")
                             .font(.largeTitle)
-                            .foregroundColor(.white)
                     }
-                    Spacer()
+                    
+                    Spacer() // Space
                 }
+                .foregroundColor(Color.white)
                 
                 Spacer() // Space
                 
