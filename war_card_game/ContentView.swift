@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var cardOne = "card2"
+    @State var cardTwo = "card3"
+    
+    @State var playerValue = 0
+    @State var cpuValue = 0
+    
     var body: some View {
         ZStack {
             Image("background-plain")
@@ -23,9 +29,9 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Image("card2")
+                    Image(cardOne)
                     Spacer()
-                    Image("card3")
+                    Image(cardTwo)
                     Spacer()
                 }
                 
@@ -44,7 +50,7 @@ struct ContentView: View {
                         Text("Player")
                             .font(.headline)
                             .padding(.bottom, 3)
-                        Text("0")
+                        Text("\(playerValue)")
                             .font(.largeTitle)
                     }
                     
@@ -54,7 +60,7 @@ struct ContentView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 3.0)
-                        Text("0")
+                        Text("\(cpuValue)")
                             .font(.largeTitle)
                     }
                     
@@ -70,7 +76,11 @@ struct ContentView: View {
     }
     
     func handleButtonAction() {
-        print("devAYZ")
+        cardOne = "card" + "\(Int.random(in: 2...14))"
+        cardTwo = "card" + "\(Int.random(in: 2...14))"
+        
+        playerValue = Int.random(in: 0...100)
+        cpuValue = Int.random(in: 0...100)
     }
 }
 
