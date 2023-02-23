@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         ZStack {
             Image("background-plain")
@@ -30,7 +31,9 @@ struct ContentView: View {
                 
                 Spacer() // Space
                 
-                Image("button")
+                Button(action: handleButtonAction) {
+                    Image("button")
+                }
                 
                 Spacer() // Space
                 
@@ -64,6 +67,10 @@ struct ContentView: View {
             }
             
         }
+    }
+    
+    func handleButtonAction() {
+        print("devAYZ")
     }
 }
 
