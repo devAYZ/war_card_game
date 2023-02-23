@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var cardOne = "card2"
-    @State var cardTwo = "card3"
+    @State var playerCardText = "card2"
+    @State var cpuCardText = "card3"
     
-    @State var playerValue = 0
-    @State var cpuValue = 0
+    @State var playerScoreText = 0
+    @State var cpuScoreText = 0
     
     var body: some View {
         ZStack {
@@ -29,9 +29,10 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Image(cardOne)
+                    //cardOneView
+                    Image(playerCardText)
                     Spacer()
-                    Image(cardTwo)
+                    Image(cpuCardText)
                     Spacer()
                 }
                 
@@ -50,7 +51,7 @@ struct ContentView: View {
                         Text("Player")
                             .font(.headline)
                             .padding(.bottom, 3)
-                        Text("\(playerValue)")
+                        Text("\(playerScoreText)")
                             .font(.largeTitle)
                     }
                     
@@ -60,7 +61,7 @@ struct ContentView: View {
                         Text("CPU")
                             .font(.headline)
                             .padding(.bottom, 3.0)
-                        Text("\(cpuValue)")
+                        Text("\(cpuScoreText)")
                             .font(.largeTitle)
                     }
                     
@@ -75,12 +76,26 @@ struct ContentView: View {
         }
     }
     
+    var cardOneView: Image {
+        Image(playerCardText)
+    }
+    
     func handleButtonAction() {
-        cardOne = "card" + "\(Int.random(in: 2...14))"
-        cardTwo = "card" + "\(Int.random(in: 2...14))"
         
-        playerValue = Int.random(in: 0...100)
-        cpuValue = Int.random(in: 0...100)
+        let playerCardValue = Int.random(in: 2...14)
+        let cpuCardValue = Int.random(in: 2...14)
+        
+        playerCardText = "card" + "\(playerCardValue)"
+        cpuCardText = "card" + "\(cpuCardValue)"
+        
+        if playerCardValue > cpuCardValue {
+            playerScoreText += 1
+        } else if playerCardValue < cpuCardValue {
+            cpuScoreText += 1
+        } else {
+            playerScoreText += 1
+            cpuScoreText += 1
+        }
     }
 }
 
